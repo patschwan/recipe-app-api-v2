@@ -15,7 +15,9 @@ class UserManager(BaseUserManager):
     # **extra_fields can provide keyword arguments, e.g. a name
     def create_user(self, email, password=None, **extra_fields):
         """create, save and return a new user."""
-        user = self.model(email=email, **extra_fields)
+        # vor "normalisieren der Mail Adresse"
+        # user = self.model(email=email, **extra_fields)
+        user = self.model(email=self.normalize_email(email), **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
 
