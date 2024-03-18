@@ -13,7 +13,8 @@ class ModelTests(TestCase):
 
     def test_create_user_with_email_sucessful(self):
         """Test creating a user with an email is successful."""
-        # example.com is reserved to Testing - especially when sending out real mails! ;-)
+        # example.com is reserved to Testing
+        # Best Practice especially when sending out real mails! ;-)
         email = 'test@example.com'
         password = 'testpass123'
         user = get_user_model().objects.create_user(
